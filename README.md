@@ -1,12 +1,8 @@
- Saya sudah membuatkan README lengkap untuk repository GitHub tugas coding kelas 8! Berikut adalah isi lengkapnya yang bisa langsung kamu copy ke file `README.md`:
-
----
-
 # 🎓 Tugas Coding Kelas 8 - HTML, C, dan PHP
 
 Halo semuanya! 👋 Selamat datang di repository tugas coding. Di sini kalian akan belajar membuat program sederhana menggunakan **HTML**, **Bahasa C**, dan **PHP**.
 
-> 🔔 **Catatan Penting:** Setiap siswa punya tugas yang **berbeda-beda**, jadi kerjakan sesuai nomor absen masing-masing ya!
+> 🔔 **Catatan Penting:** Setiap siswa punya tugas yang **berbeda-beda**, jadi kerjakan sesuai nomor absen masing-masing. Pilih salahsatu implementasi Html/C/PHP !
 
 ---
 
