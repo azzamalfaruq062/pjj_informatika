@@ -32,7 +32,7 @@ cd 01_Budi
 ```
 
 ### Langkah 4: Kerjakan Tugas Sesuai Nomor Absen
-Lihat daftar tugas di bawah ini sesuai nomor absenmu. Setiap tugas ada 3 file yang harus dibuat:
+Lihat daftar tugas di bawah ini sesuai nomor absenmu. Setiap tugas ada 3 file (Pilih salahsatu):
 - File **HTML** (`.html`)
 - File **Bahasa C** (`.c`)
 - File **PHP** (`.php`)
