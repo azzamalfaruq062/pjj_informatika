@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Konversi Mata Uang</title>
+</head>
+<body>
+
+    <h2>Konversi Rupiah ke Dollar & Euro</h2>
+
+    <label>Masukkan Rupiah:</label><br>
+    <input type="number" id="rupiah" placeholder="contoh: 15000"><br><br>
+
+    <button onclick="konversi()">Konversi</button>
+
+    <h3>Hasil:</h3>
+    <p id="usd"></p>
+    <p id="eur"></p>
+
+    <script>
+        function konversi() {
+            let rupiah = document.getElementById("rupiah").value;
+
+            let usd = rupiah / 15000;
+            let eur = rupiah / 16500;
+
+            document.getElementById("usd").innerHTML = "Dollar (USD): $" + usd.toFixed(2);
+            document.getElementById("eur").innerHTML = "Euro (EUR): €" + eur.toFixed(2);
+        }
+    </script>
+
+</body>
+</html>
