@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Cek Usia KTP/SIM</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+        }
+        .hasil {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Cek Usia KTP & SIM</h2>
+
+    <input type="text" id="nama" placeholder="Masukkan Nama"><br>
+    <input type="number" id="tahun" placeholder="Tahun Lahir"><br>
+    <button onclick="cekUsia()">Cek</button>
+
+    <div class="hasil" id="output"></div>
+
+    <script>
+        function cekUsia() {
+            let nama = document.getElementById("nama").value;
+            let tahunLahir = document.getElementById("tahun").value;
+            let tahunSekarang = new Date().getFullYear();
+
+            let usia = tahunSekarang - tahunLahir;
+
+            let ktp = usia >= 17 ? "Bisa membuat KTP" : "Belum bisa membuat KTP";
+            let sim = usia >= 17 ? "Bisa membuat SIM" : "Belum bisa membuat SIM";
+
+            document.getElementById("output").innerHTML =
+                "Nama: " + nama + "<br>" +
+                "Usia: " + usia + " tahun<br>" +
+                "KTP: " + ktp + "<br>" +
+                "SIM: " + sim;
+        }
+    </script>
+
+</body>
+</html>
