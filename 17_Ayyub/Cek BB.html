@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator BMI</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; display: flex; justify-content: center; padding-top: 50px; }
+        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 300px; }
+        h2 { text-align: center; color: #333; }
+        .input-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; color: #666; }
+        input[type="number"] { width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ddd; border-radius: 4px; }
+        button { width: 100%; padding: 10px; background-color: #28a745; border: none; border-radius: 4px; color: white; font-size: 16px; cursor: pointer; }
+        button:hover { background-color: #218838; }
+        #result { margin-top: 20px; text-align: center; font-weight: bold; }
+        .category { margin-top: 10px; padding: 10px; border-radius: 4px; }
+        .kurus { background-color: #fff3cd; color: #856404; }
+        .normal { background-color: #d4edda; color: #155724; }
+        .gemuk { background-color: #fff3cd; color: #856404; }
+        .obesitas { background-color: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Kalkulator BMI</h2>
+    <div class="input-group">
+        <label>Berat Badan (kg)</label>
+        <input type="number" id="weight" placeholder="Contoh: 65" required>
+    </div>
+    <div class="input-group">
+        <label>Tinggi Badan (cm)</label>
+        <input type="number" id="height" placeholder="Contoh: 170" required>
+    </div>
+    <button onclick="calculateBMI()">Hitung BMI</button>
+    
+    <div id="result"></div>
+</div>
+
+<script>
+    function calculateBMI() {
+
+        let weight = parseFloat(document.getElementById('weight').value);
+        let heightCm = parseFloat(document.getElementById('height').value);
+        let resultDiv = document.getElementById('result');
+
+        if (isNaN(weight) || isNaN(heightCm) || weight <= 0 || heightCm <= 0) {
+            resultDiv.innerHTML = "Masukkan angka yang valid!";
+            return;
+        }
+
+        let heightM = heightCm / 100;
+        let bmi = weight / (heightM * heightM);
+        let bmiFormatted = bmi.toFixed(1);
+
+        let category = "";
+        let colorClass = "";
+
+        if (bmi < 18.5) {
+            category = "Kurus";
+            colorClass = "kurus";
+        } else if (bmi >= 18.5 && bmi <= 24.9) {
+            category = "Normal";
+            colorClass = "normal";
+        } else if (bmi >= 25 && bmi <= 29.9) {
+            category = "Gemuk";
+            colorClass = "gemuk";
+        } else {
+            category = "Obesitas";
+            colorClass = "obesitas";
+        }
+
+        resultDiv.innerHTML = `
+            <p>BMI Anda: ${bmiFormatted}</p>
+            <div class="category ${colorClass}">Kategori: ${category}</div>
+        `;
+    }
+</script>
+
+</body>
+</html>
