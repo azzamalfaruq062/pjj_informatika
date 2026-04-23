@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <h1>source by chat</h1>
+    <title>Hitung IPK</title>
+
+```
+<style>
+    /* ===== CSS (TAMPILAN) ===== */
+
+    body {
+        font-family: Arial; /* Mengatur jenis font */
+        background: linear-gradient(135deg, #0e9acd, #005bea); /* Background gradasi */
+        text-align: center; /* Semua teks ke tengah */
+    }
+
+    .box {
+        background: white; /* Warna kotak */
+        padding: 25px; /* Jarak isi ke pinggir */
+        margin: 80px auto; /* Posisi tengah */
+        width: 320px; /* Lebar kotak */
+        border-radius: 15px; /* Sudut melengkung */
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Bayangan */
+        transition: 0.3s; /* Animasi halus */
+    }
+
+    .box:hover {
+        transform: scale(1.03); /* Membesar sedikit saat disentuh */
+    }
+
+    input {
+        width: 85%; /* Lebar input */
+        padding: 10px; /* Jarak dalam */
+        margin: 5px; /* Jarak antar input */
+        border-radius: 8px; /* Sudut */
+        border: 1px solid #ccc; /* Garis */
+        outline: none; /* Hilangkan garis biru default */
+    }
+
+    input:focus {
+        border-color: #0e9acd; /* Warna saat diklik */
+        box-shadow: 0 0 5px #0e9acd; /* Efek glow */
+    }
+
+    button {
+        padding: 10px 20px; /* Ukuran tombol */
+        background: linear-gradient(45deg, #0e9acd, #005bea); /* Warna gradasi */
+        color: white; /* Warna teks */
+        border: none; /* Hilangkan garis */
+        border-radius: 8px; /* Sudut */
+        cursor: pointer; /* Ubah cursor jadi tangan */
+        margin-top: 10px;
+    }
+
+    button:hover {
+        transform: translateY(-2px); /* Naik sedikit */
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Bayangan saat hover */
+    }
+
+    #hasil {
+        margin-top: 15px; /* Jarak atas */
+        font-weight: bold; /* Tebal */
+        color: #005bea; /* Warna hasil */
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+<div class="box"> <!-- Kotak utama -->
+
+```
+<h2>Hitung IPK</h2> <!-- Judul -->
+
+<!-- ===== INPUT USER ===== -->
+<input id="n1" placeholder="Nilai 1"><br> <!-- Input nilai pertama -->
+<input id="n2" placeholder="Nilai 2"><br> <!-- Input nilai kedua -->
+<input id="n3" placeholder="Nilai 3"><br> <!-- Input nilai ketiga -->
+<input id="n4" placeholder="Nilai 4"><br> <!-- Input nilai keempat -->
+
+<!-- ===== TOMBOL AKSI ===== -->
+<button onclick="hitung()">Hitung</button> <!-- Saat diklik, jalankan fungsi hitung() -->
+
+<!-- ===== TEMPAT HASIL ===== -->
+<p id="hasil"></p> <!-- Hasil akan muncul di sini -->
+```
+
+</div>
+
+<script>
+/* ===== JAVASCRIPT (LOGIKA / INTERAKTIF) ===== */
+
+function hitung() { // Fungsi dijalankan saat tombol diklik
+
+  // === 1. AMBIL INPUT DARI USER ===
+  let n1 = document.getElementById("n1").value; // Ambil nilai dari input 1
+  let n2 = document.getElementById("n2").value; // Ambil nilai dari input 2
+  let n3 = document.getElementById("n3").value; // Ambil nilai dari input 3
+  let n4 = document.getElementById("n4").value; // Ambil nilai dari input 4
+
+  // === 2. VALIDASI INPUT ===
+  if (n1=="" || n2=="" || n3=="" || n4=="") { 
+    // Jika ada yang kosong
+    document.getElementById("hasil").innerHTML = "Isi semua nilai dulu!"; 
+    return; // Hentikan program
+  }
+
+  // === 3. UBAH KE ANGKA ===
+  n1 = +n1; // Mengubah string ke angka
+  n2 = +n2;
+  n3 = +n3;
+  n4 = +n4;
+
+  // === 4. HITUNG RATA-RATA (IPK) ===
+  let ipk = (n1+n2+n3+n4)/4; // Rumus IPK
+
+  // === 5. TAMPILKAN HASIL ===
+  document.getElementById("hasil").innerHTML =
+    "IPK: " + ipk.toFixed(2); // Tampilkan dengan 2 angka di belakang koma
+}
+</script>
+
+</body>
+</html>
