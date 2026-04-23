@@ -886,8 +886,8 @@ Setiap tugas akan dinilai berdasarkan:
 ## 📞 Kontak
 
 Jika ada pertanyaan, hubungi:
-- **Guru:** [Nama Guru]
-- **Email:** [email@sekolah.sch.id]
+- **Guru:** [Azam]
+- **Email:** [azzamalfaruq105@gmail.com]
 - **Kelas:** 8 [Nama Kelas]
 
 ---
