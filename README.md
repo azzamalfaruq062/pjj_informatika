@@ -488,7 +488,7 @@ namafile.exe
 ---
 
 ### 👤 Absen 16
-**Nama:** [Isi nama siswa]
+**Nama:** [marioalbyrahman]
 
 **Tugas:** Penghitung IPK Sederhana (Indeks Prestasi Kumulatif)
 
