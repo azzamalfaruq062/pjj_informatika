@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Luas Segitiga</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #e6f2ff;
+        }
+        .box {
+            background: white;
+            padding: 20px;
+            width: 300px;
+            margin: auto;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .hasil {
+            margin-top: 10px;
+            padding: 10px;
+            background: lightgreen;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Hitung Luas Segitiga</h2>
+
+    <input type="number" id="alas" placeholder="Masukkan Alas"><br><br>
+    <input type="number" id="tinggi" placeholder="Masukkan Tinggi"><br><br>
+
+    <button onclick="hitung()">Hitung</button>
+
+    <div class="hasil" id="output"></div>
+</div>
+
+<script>
+function hitung() {
+    let alas = parseFloat(document.getElementById("alas").value);
+    let tinggi = parseFloat(document.getElementById("tinggi").value);
+
+    let luas = 0.5 * alas * tinggi;
+
+    document.getElementById("output").innerHTML =
+        "Luas Segitiga = " + luas;
+}
+</script>
+
+</body>
+</html>
