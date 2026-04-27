@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Cek Bilangan Positif, Negatif, atau Nol</title>
+  </head>
+  <body>
+    <h1>Haloo guys!</h1>
+    <p>Silahkan isi form dibawah ini (input satu angka):</p>
+  </body>
+</html>
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cek Jenis Bilangan</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+      input,
+      button {
+        padding: 10px;
+        font-size: 16px;
+      }
+      #hasil {
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .positif {
+        color: green;
+      }
+      .negatif {
+        color: red;
+      }
+      .nol {
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Cek Jenis Bilangan</h2>
+
+    <input type="number" id="angka" placeholder="Masukkan angka" />
+    <button onclick="cekBilangan()">Cek</button>
+
+    <div id="hasil"></div>
+
+    <script>
+      function cekBilangan() {
+        let angka = document.getElementById("angka").value;
+        let hasil = document.getElementById("hasil");
+
+        if (angka === "") {
+          hasil.innerHTML = "Masukkan angka terlebih dahulu!";
+          hasil.className = "";
+          return;
+        }
+
+        angka = Number(angka);
+
+        if (angka === 0) {
+          hasil.innerHTML = "Bilangan Nol";
+          hasil.className = "nol";
+        } else if (angka > 0) {
+          hasil.innerHTML = "Bilangan Positif";
+          hasil.className = "positif"; // hijau
+        } else if (angka < 0) {
+          hasil.innerHTML = "Bilangan Negatif";
+          hasil.className = "negatif"; // merah
+        }
+      }
+    </script>
+  </body>
+</html>

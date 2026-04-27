@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Luas Permukaan Kubus</title>
+</head>
+<body>
+
+    <h2>Hitung Luas Permukaan Kubus</h2>
+
+    <label>Masukkan panjang rusuk:</label><br>
+    <input type="number" id="rusuk"><br><br>
+
+    <button onclick="hitung()">Hitung</button>
+
+    <h3 id="hasil"></h3>
+
+    <br>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Hexahedron.png/200px-Hexahedron.png" 
+         alt="Kubus" width="150">
+
+    <script>
+        function hitung() {
+            let r = document.getElementById("rusuk").value;
+            let luas = 6 * r * r;
+            document.getElementById("hasil").innerHTML = 
+                "Luas Permukaan = " + luas;
+        }
+    </script>
+
+</body>
+</html>
