@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Rata-rata Nilai</title>
+</head>
+<body>
+
+<h2>Input 5 Nilai Ulangan</h2>
+
+<input type="number" id="n1" placeholder="Nilai 1"><br><br>
+<input type="number" id="n2" placeholder="Nilai 2"><br><br>
+<input type="number" id="n3" placeholder="Nilai 3"><br><br>
+<input type="number" id="n4" placeholder="Nilai 4"><br><br>
+<input type="number" id="n5" placeholder="Nilai 5"><br><br>
+
+<button onclick="hitung()">Hitung</button>
+
+<h3 id="hasil"></h3>
+
+<script>
+function hitung() {
+    let n1 = parseFloat(document.getElementById("n1").value) || 0;
+    let n2 = parseFloat(document.getElementById("n2").value) || 0;
+    let n3 = parseFloat(document.getElementById("n3").value) || 0;
+    let n4 = parseFloat(document.getElementById("n4").value) || 0;
+    let n5 = parseFloat(document.getElementById("n5").value) || 0;
+
+    let rata = (n1 + n2 + n3 + n4 + n5) / 5;
+    let status = "";
+
+    if (rata >= 80) {
+        status = "Sangat Baik";
+    } else if (rata >= 70) {
+        status = "Baik";
+    } else if (rata >= 60) {
+        status = "Cukup";
+    } else {
+        status = "Perlu Belajar Lagi";
+    }
+
+    document.getElementById("hasil").innerHTML =
+        "Rata-rata: " + rata.toFixed(2) + "<br>Status: " + status;
+}
+</script>
+
+</body>
+</html>

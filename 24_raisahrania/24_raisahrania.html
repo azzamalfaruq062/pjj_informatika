@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Cek Kelulusan Ujian</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            text-align: center;
+            padding: 30px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 350px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Cek Kelulusan</h2>
+
+    <input type="number" id="uh" placeholder="Nilai UH"><br>
+    <input type="number" id="uts" placeholder="Nilai UTS"><br>
+    <input type="number" id="uas" placeholder="Nilai UAS"><br>
+
+    <button onclick="hitungNilai()">Hitung</button>
+
+    <div class="result" id="output"></div>
+</div>
+
+<script>
+function hitungNilai() {
+    let uh = parseFloat(document.getElementById("uh").value);
+    let uts = parseFloat(document.getElementById("uts").value);
+    let uas = parseFloat(document.getElementById("uas").value);
+
+    if (isNaN(uh) || isNaN(uts) || isNaN(uas)) {
+        document.getElementById("output").innerHTML = "Harap isi semua nilai!";
+        return;
+    }
+
+    // Rumus nilai akhir
+    let nilaiAkhir = (uh * 0.2) + (uts * 0.3) + (uas * 0.5);
+
+    let status = "";
+
+    if (nilaiAkhir >= 70) {
+        status = "Lulus";
+    } else if (nilaiAkhir >= 60) {
+        status = "Remedial";
+    } else {
+        status = "Tidak Lulus";
+    }
+
+    document.getElementById("output").innerHTML =
+        "Nilai Akhir: " + nilaiAkhir.toFixed(2) + "<br>Status: " + status;
+}
+</script>
+
+</body>
+</html
