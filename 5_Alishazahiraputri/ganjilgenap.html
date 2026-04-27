@@ -14,7 +14,6 @@
         min-height: 100vh;
         flex-direction: column;
         background-color: #c0ceffee;
-        background-image: url(bg.png);
     }
 
     .wrapper{
@@ -55,22 +54,7 @@
          transition: 0.3s;
     }
 
-    .container{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        gap: 300px;
-        position: fixed;
-        top: 50%;
-        transform: translateY(-50%);
-        padding: 0 20px;
-        /*0= atas dan bawah, 20= kiri dan kanan*/
-        pointer-events: none;
-        /*biar gambar ga ngalangin pointer*/
-    }
-    .container img{
-        width: 30%;
-    }
+
 
 </style>
 
@@ -79,12 +63,6 @@
         <input class="angka" type="text" value="" placeholder="Masukkan angka">
         <button class="tombol">Cek</button>
         <p class="hasil"></p>
-    </div>
-
-    <div class="container">
-        <img src="b.png">
-        <img src="a.png">
-
     </div>
 
     <script>
