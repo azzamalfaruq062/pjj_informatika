@@ -1,0 +1,68 @@
+!DOCTYPE html>
+<html>
+<head>
+    <title>Program Hitung Diskon</title>
+</head>
+<body>
+
+<h2>Form Hitung Diskon</h2>
+
+<form method="POST" action="">
+    <table border="0">
+        <tr>
+            <td>Harga Barang (Rp)</td>
+            <td>:</td>
+            <td><input type="number" name="harga" required></td>
+        </tr>
+        <tr>
+            <td>Diskon (%)</td>
+            <td>:</td>
+            <td><input type="number" name="diskon" required></td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <input type="submit" name="hitung" value="Hitung">
+            </td>
+        </tr>
+    </table>
+</form>
+
+<?php
+if (isset($_POST['hitung'])) {
+    // Ambil data dari form
+    $harga = $_POST['harga'];
+    $diskon = $_POST['diskon'];
+    
+    // Hitung diskon pertama
+    $potongan1 = $harga * $diskon / 100;
+    $harga1 = $harga - $potongan1;
+    
+    // Cek apakah harga asli > 100.000
+    $potongan2 = 0;
+    if ($harga > 100000) {
+        $potongan2 = $harga1 * 5 / 100;
+    }
+    
+    // Hitung total potongan dan harga akhir
+    $total_potongan = $potongan1 + $potongan2;
+    $harga_akhir = $harga1 - $potongan2;
+    
+    // Tampilkan hasil
+    echo "<hr>";
+    echo "<h3>Hasil Perhitungan:</h3>";
+    echo "Harga awal: Rp " . number_format($harga) . "<br>";
+    echo "Diskon $diskon%: Rp " . number_format($potongan1) . "<br>";
+    
+    if ($harga > 100000) {
+        echo "Harga > Rp 100.000, dapat tambahan diskon 5%: Rp " . number_format($potongan2) . "<br>";
+    } else {
+        echo "Harga tidak di atas Rp 100.000, jadi tidak dapat tambahan diskon<br>";
+    }
+    
+    echo "Total diskon: Rp " . number_format($total_potongan) . "<br>";
+    echo "<b>Harga yang harus dibayar: Rp " . number_format($harga_akhir) . "</b>";
+}
+?>
+
+</body>
+</html>
