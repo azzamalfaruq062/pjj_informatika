@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penghitung Faktorial</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .header .nama-siswa {
+            color: #667eea;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .input-wrapper {
+            display: flex;
+            gap: 10px;
+        }
+
+        .input-wrapper input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 18px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .input-wrapper input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn-hitung {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-hitung:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-hitung:active {
+            transform: translateY(0);
+        }
+
+        .result-box {
+            background: #f8f9ff;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .result-box.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .result-title {
+            color: #667eea;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .proses {
+            background: white;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .proses-text {
+            color: #555;
+            font-size: 18px;
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+        }
+
+        .hasil-akhir {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .hasil-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .hasil-nilai {
+            color: white;
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .error-message {
+            background: #fee;
+            border: 1px solid #fcc;
+            color: #c00;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .info-box {
+            background: #f0f4ff;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 25px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .info-box strong {
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔢 Penghitung Faktorial</h1>
+            <p class="nama-siswa">Nama: Muhammad Fakhri</p>
+        </div>
+
+        <div class="input-group">
+            <label for="angka">Masukkan angka (1-10):</label>
+            <div class="input-wrapper">
+                <input 
+                    type="number" 
+                    id="angka" 
+                    min="1" 
+                    max="10" 
+                    placeholder="1-10"
+                    onkeypress="if(event.key === 'Enter') hitungFaktorial()"
+                >
+                <button class="btn-hitung" onclick="hitungFaktorial()">
+                    Hitung!
+                </button>
+            </div>
+        </div>
+
+        <div class="error-message" id="error">
+            ⚠️ Masukkan angka antara 1 sampai 10!
+        </div>
+
+        <div class="result-box" id="result">
+            <div class="result-title">📊 Proses Perhitungan</div>
+            
+            <div class="proses">
+                <div class="proses-text" id="proses-text"></div>
+            </div>
+
+            <div class="hasil-akhir">
+                <div class="hasil-label">Hasil Faktorial</div>
+                <div class="hasil-nilai" id="hasil-nilai"></div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>💡 Apa itu Faktorial?</strong><br>
+            Faktorial (n!) adalah hasil perkalian semua bilangan bulat positif dari 1 sampai n.<br>
+            Contoh: 5! = 5 × 4 × 3 × 2 × 1 = 120
+        </div>
+    </div>
+
+    <script>
+        function hitungFaktorial() {
+            const input = document.getElementById('angka');
+            const resultBox = document.getElementById('result');
+            const errorBox = document.getElementById('error');
+            const prosesText = document.getElementById('proses-text');
+            const hasilNilai = document.getElementById('hasil-nilai');
+            
+            const angka = parseInt(input.value);
+            
+            // Sembunyikan hasil sebelumnya
+            resultBox.classList.remove('show');
+            errorBox.classList.remove('show');
+            
+            // Validasi input
+            if (isNaN(angka) || angka < 1 || angka > 10) {
+                setTimeout(() => {
+                    errorBox.classList.add('show');
+                }, 100);
+                return;
+            }
+            
+            // Hitung faktorial dan buat proses
+            let hasil = 1;
+            let prosesArray = [];
+            
+            for (let i = angka; i >= 1; i--) {
+                prosesArray.push(i);
+                hasil *= i;
+            }
+            
+            // Format tampilan proses
+            const prosesString = `${angka}! = ${prosesArray.join(' × ')} = ${hasil}`;
+            
+            // Tampilkan hasil dengan animasi
+            setTimeout(() => {
+                prosesText.textContent = prosesString;
+                hasilNilai.textContent = hasil.toLocaleString('id-ID');
+                resultBox.classList.add('show');
+            }, 100);
+        }
+
+        // Auto-focus pada input saat halaman dimuat
+        document.getElementById('angka').focus();
+    </script>
+</body>
+</html>
