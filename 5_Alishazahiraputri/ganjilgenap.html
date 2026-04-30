@@ -1,0 +1,85 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genap/Ganjil</title>
+
+</head>
+
+<body>
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        flex-direction: column;
+        background-color: #c0ceffee;
+    }
+
+    .wrapper{
+        width: 300px;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: #9696e8ee;
+        border-radius: 10px;
+        margin: 10px auto;
+        text-align: center;
+    }
+    .wrapper h1{
+        text-align: center;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .wrapper .angka{
+        display: block;
+        margin: 10px auto;
+        font-size: 1rem;
+        padding: 4px 8px;
+        border-radius: 4px;
+        border: 1px solid #fff;
+        outline: none;
+    }
+    .wrapper .tombol{
+        display: block;
+        margin: 0 auto;
+        font-size: 1rem;
+        padding: 8px 16px;
+        border-radius: 4px;
+        border: 1px solid #9696e8ee;
+        outline: none;
+        background: #6946dcee;
+        color:#fff;
+    }
+    .wrapper .tombol:hover{
+         background: #2e2291ee;
+         transition: 0.3s;
+    }
+
+
+
+</style>
+
+    <div class="wrapper">
+        <h1>Pendeteksi genap & ganjil</h1>
+        <input class="angka" type="text" value="" placeholder="Masukkan angka">
+        <button class="tombol">Cek</button>
+        <p class="hasil"></p>
+    </div>
+
+    <script>
+    let tombol = document.querySelector(".tombol")
+
+    tombol.onclick = function myFunction(){
+            let input = document.querySelector(".angka").value;
+            let bilangan = parseInt(input); //function bawaan
+            let hasil = document.querySelector(".hasil");
+
+                if(isNaN(bilangan)){ //function bawaan
+                    hasil.textContent = "Kita ga nerima huruf ya, hush hush";
+                } else if (bilangan % 2 ===0){
+                    hasil.textContent = "Genap, bilangan genap habis dibagi dua";
+                } else {
+                    hasil.textContent = "Ganjil, bilangan ganjil nyisa dibagi dua";
+                }
+        };
+    </script>
+</body>
