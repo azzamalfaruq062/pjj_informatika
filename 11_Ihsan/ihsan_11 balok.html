@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Volume Balok</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; 
+            text-align: center;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        input {
+            margin: 5px;
+            padding: 5px;
+        }
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+        img {
+            margin-top: 20px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Penghitung Volume Balok</h2>
+
+    <div class="container">
+        <input type="number" id="panjang" placeholder="Panjang (cm)">
+        <input type="number" id="lebar" placeholder="Lebar (cm)">
+        <input type="number" id="tinggi" placeholder="Tinggi (cm)">
+        <br>
+        <button onclick="hitungVolume()">Hitung</button>
+
+        <h3 id="hasil"></h3>
+
+        <!-- Gambar balok -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Cuboid.png" alt="Gambar Balok">
+    </div>
+
+    <script>
+        function hitungVolume() {
+            let p = document.getElementById("panjang").value;
+            let l = document.getElementById("lebar").value;
+            let t = document.getElementById("tinggi").value;
+
+            let volume = p * l * t;
+
+            document.getElementById("hasil").innerHTML =
+                "Volume = " + volume + " cm³";
+        }
+    </script>
+
+</body>
+</html> 
