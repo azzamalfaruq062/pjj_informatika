@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Penghitung Volume Balok</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #74ebd5, #9face6);
+      text-align: center;
+      padding: 50px;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      width: 350px;
+      margin: auto;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #6c63ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #5548c8;
+    }
+
+    .hasil {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    img {
+      margin-top: 20px;
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Penghitung Volume Balok</h2>
+    <h4>By--Gerardo Rezvan Naufal Sutiyarno</h4>
+
+    <input type="number" id="panjang" placeholder="Masukkan panjang (cm)">
+    <input type="number" id="lebar" placeholder="Masukkan lebar (cm)">
+    <input type="number" id="tinggi" placeholder="Masukkan tinggi (cm)">
+
+    <button onclick="hitungVolume()">Hitung Volume</button>
+
+    <div class="hasil" id="output">Volume: -</div>
+
+  </div>
+
+  <script>
+    function hitungVolume() {
+      let p = document.getElementById("panjang").value;
+      let l = document.getElementById("lebar").value;
+      let t = document.getElementById("tinggi").value;
+
+      if (p === "" || l === "" || t === "") {
+        document.getElementById("output").innerText = "Harap isi semua kolom!";
+        return;
+      }
+
+      let volume = p * l * t;
+
+      document.getElementById("output").innerText = 
+        "Volume: " + volume + " cm³";
+    }
+  </script>
+
+</body>
+</html>

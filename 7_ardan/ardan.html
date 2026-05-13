@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Penghitung Nilai Rata-rata</title>
+</head>
+<body>
+
+    <h2>Penghitung Nilai Rata-rata</h2>
+
+    <label>Nama:</label><br>
+    <input type="text" id="nama"><br><br>
+
+    <label>Nilai Matematika:</label><br>
+    <input type="number" id="mtk"><br><br>
+
+    <label>Nilai Bahasa Indonesia:</label><br>
+    <input type="number" id="indo"><br><br>
+
+    <label>Nilai IPA:</label><br>
+    <input type="number" id="ipa"><br><br>
+
+    <button onclick="hitung()">Hitung</button>
+
+    <h3 id="hasil"></h3>
+
+    <script>
+        function hitung() {
+            let nama = document.getElementById("nama").value;
+            let mtk = parseFloat(document.getElementById("mtk").value);
+            let indo = parseFloat(document.getElementById("indo").value);
+            let ipa = parseFloat(document.getElementById("ipa").value);
+
+            let rata = (mtk + indo + ipa) / 3;
+
+            let status;
+            if (rata >= 70) {
+                status = "Lulus";
+            } else {
+                status = "Tidak Lulus";
+            }
+
+            document.getElementById("hasil").innerHTML =
+                "Nama: " + nama + "<br>" +
+                "Rata-rata: " + rata.toFixed(2) + "<br>" +
+                "Status: " + status;
+        }
+    </script>
+
+</body>
+</html>

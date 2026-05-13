@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kalkulator Sederhana</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #74ebd5, #9face6);
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      width: 320px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      transition: 0.2s;
+    }
+
+    input:hover {
+      transform: scale(1.05);
+      border-color: #4CAF50;
+    }
+
+    button {
+      width: 95%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #4CAF50;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.07);
+      background: #45a049;
+    }
+
+    .hasil {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .hasil:hover {
+      transform: scale(1.03);
+    }
+
+    .tambah {
+      background: #d1f7d6;
+      color: #1b5e20;
+    }
+
+    .kurang {
+      background: #ffd6d6;
+      color: #b71c1c;
+    }
+
+    .source {
+      position: fixed;
+      bottom: 12px;
+      right: 12px;
+      color: white;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+  <h2>Kalkulator</h2>
+
+  <input type="number" id="angka1" placeholder="Masukkan angka pertama">
+  <input type="number" id="angka2" placeholder="Masukkan angka kedua">
+
+  <button onclick="hitung()">Hitung</button>
+
+  <div id="jawab1" class="hasil tambah">
+    Hasil penjumlahan akan muncul di sini
+  </div>
+
+  <div id="jawab2" class="hasil kurang">
+    Hasil pengurangan akan muncul di sini
+  </div>
+</div>
+
+<div class="source">Source : ChatGPT</div>
+
+<script>
+function hitung() {
+  let a = Number(document.getElementById("angka1").value);
+  let b = Number(document.getElementById("angka2").value);
+
+  document.getElementById("jawab1").innerHTML =
+    "Jawab 1 (Penjumlahan): " + (a + b);
+
+  document.getElementById("jawab2").innerHTML =
+    "Jawab 2 (Pengurangan): " + (a - b);
+}
+</script>
+
+</body>
+</html>
